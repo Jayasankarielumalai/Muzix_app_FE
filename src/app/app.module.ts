@@ -9,6 +9,9 @@ import { RecommendedComponent } from './recommended/recommended.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClientModule } from '@angular/common/http';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync()

@@ -1,1 +1,26 @@
-<p>favourites works!</p>
+<h2 class="section-title">Favorite Movies</h2>
+<div *ngIf="favorites.length === 0" class="no-favorites">
+    <mat-card-content>
+        <h2>No Favorite Movies</h2>
+        <p>You haven't added any movies to your favorites list yet. Start exploring and add some!</p>
+      </mat-card-content>
+</div>
+<div class="favMovies-container" *ngIf="favorites.length > 0">
+  <div class="movies-grid">
+    <div *ngFor="let movie of favorites" class="movie-tile">
+      <mat-card class="movie-card"  >
+        <!-- <img mat-card-image *ngIf="movie.moviePosterUrl" [src]="imgPrefix + movie.moviePosterUrl" alt="{{ movie.movieName }}" (click)="goToMovie(movie.movieId)"> -->
+        <mat-card-content>
+          <h3>{{ movie.movieName}}</h3><br/>
+        </mat-card-content>
+        <p>  Release Year: {{ movie.yearOfRelease | date: 'yyyy' }}</p>
+        <div class="actions">
+          <button  matTooltip="Remove From Favorites"  mat-icon-button (click)="removeFavorite(movie)">
+            <mat-icon color="warn">favorite</mat-icon>
+          </button>
+          <!-- <button class="view-button" mat-button (click)="goToMovie(movie.id)">View</button> -->
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
